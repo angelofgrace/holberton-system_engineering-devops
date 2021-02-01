@@ -1,2 +1,2 @@
-C#!/bin/bash
+#!/bin/bash
 sort | unique -u
