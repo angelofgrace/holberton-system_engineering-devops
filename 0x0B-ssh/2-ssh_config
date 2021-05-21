@@ -1,0 +1,4 @@
+PasswordAuthentication no
+
+Host holberton_admin
+IdentityFile ~/.ssh/holberton
