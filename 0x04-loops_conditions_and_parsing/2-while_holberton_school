@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#script displays string 10 times, while loop
+
+x = 0
+
+while [ $x -le 9 ]
+do
+    echo "Holberton School"
+    let "x++"
+done
