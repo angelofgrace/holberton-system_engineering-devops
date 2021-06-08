@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Rick-roll-redirect
 
-sed -i "s@^\tlocation / {@\tlocation /redirect_me {\n\t\treturn 301 $scheme:https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n\n\tlocation / {@" /etc/nginex/sites-available/default
+sed -i "s@^\tlocation / {@\tlocation /redirect_me {\n\t\treturn 301 \$scheme:https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n\n\tlocation / {@" /etc/nginex/sites-available/default
