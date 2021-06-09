@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Have you tried turning it on and turning it back off again
+
+sudo service apache2 start
