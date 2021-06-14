@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# something something internet
+
+diggy () {
+    digInfo=$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $4,$5}')
+    record=$(echo $digInfo | awk '{print $1}')
+    ip=$(echo $digInfo | awk '{print $2}')
+    echo "The subdomain $2 is a $record record and points to $ip"
+}
+if [ $# -eq 1 ]
+then
+    # Print all subdomains
+    diggy $1 www
+    diggy $1 lb-01
+    diggy $1 web-01
+    diggy $1 web-02
+elif [ $# -eq 2 ]
+then
+    # Print specified subdomain
+    diggy $1 $2
+fi
