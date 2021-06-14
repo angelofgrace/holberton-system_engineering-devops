@@ -4,15 +4,15 @@
 sudo apt-get -y update
 sudo apt-get -y ugrade
 
-sudo apt-get -y install HAproxy
-sudo service HAproxy start
+sudo apt-get -y install haproxy
+sudo service haproxy start
 
-FrontendConfig="frontend http_web\n\
+FrontendConfig="\nfrontend http_web\n\
 \tbind *:80\n\
 \tstats uri /haproxy?stats\n\
-\tdefault_backend custom_backend\n\n"
+\tdefault_backend custom_backend\n"
 
-BackendConfig="backend custom_backend\n\
+BackendConfig="\nbackend custom_backend\n\
 \tbalance roundrobin\n\
 \t\tserver web-01 54.152.238.19:80 check\n\
 \t\tserver web-02 52.91.219.116:80 check"
@@ -20,4 +20,4 @@ BackendConfig="backend custom_backend\n\
 sudo echo -e ${FrontendConfig} | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo echo -e ${BackendConfig} | sudo tee -a /etc/haproxy/haproxy.cfg
 
-sudo service HAproxy restart
+sudo service haproxy restart
