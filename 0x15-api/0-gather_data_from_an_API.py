@@ -28,7 +28,7 @@ def get_employee_tasks(employeeId):
             completed_counter += 1
             # save task title to task_list
             task_list.append(task.get('title'))
-    print("Employee {} is done with tasks ({}/{}):".format(
+    print("Employee {} is done with tasks({}/{}):".format(
         name, completed_counter, len(todosJson)))
 
     for title in task_list:
