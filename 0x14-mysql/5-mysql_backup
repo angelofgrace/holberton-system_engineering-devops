@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#back up drives save lives
+
+#accepts MySQL root password as an argument
+
+#dump all MySQL databases
+mysqldump -u root -p --all-databases > backup.sql
+$1
+sudo tar -cvzf %d-%m-%Y.tar.gz backup.sql
+#compress dump file to tar.gz, name <day>-<month>-<year>
