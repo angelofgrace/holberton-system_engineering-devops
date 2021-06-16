@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Convert API requested info JSON export """
 
-import csv
+import json
 import requests
 import sys
 
@@ -21,6 +21,7 @@ def save_tasks_to_json(employeeId):
     name = userRes.json().get('username')
     todosJson = todosRes.json()
 
+    userDict[employeeId] = []
     for task in todosJson:
         taskDict = {}
         taskDict['task'] = task.get('title')
@@ -29,7 +30,7 @@ def save_tasks_to_json(employeeId):
         
         userDict[employeeId].append(taskDict)
 
-    with open("{}.csv".format(employeeId), 'w') as jsonFile:
+    with open("{}.json".format(employeeId), 'w') as jsonFile:
         json.dump(userDict, jsonFile)
 
     return 0
